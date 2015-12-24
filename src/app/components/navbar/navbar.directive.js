@@ -32,6 +32,12 @@
         $location.path("/login")
       }
 
+      vm.toggleNav = function() {
+        vm.isCollapsed = !vm.isCollapsed
+      }
+
+      vm.isCollapsed = true;
+
     }
   }
 
