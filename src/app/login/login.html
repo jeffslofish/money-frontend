@@ -1,0 +1,14 @@
+<acme-navbar></acme-navbar>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <form method="post" role="form">
+            <legend>Login</legend>
+            <div class="form-group">
+              <input class="form-control" name="pin" type="tel" ng-model="login.formData.pin">
+            </div>
+            <button type="submit" class="btn btn-primary" ng-click="login.submitForm()">Login</button>
+          </form>
+        </div>
+    </div>
+</div>

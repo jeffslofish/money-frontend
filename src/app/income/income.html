@@ -1,0 +1,41 @@
+<acme-navbar></acme-navbar>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <legend>Accounts</legend>
+      <form name="income.form">
+        <table class="table">
+          <thead>
+            <tr>
+              <td>Description</td>
+              <td>Current Balance</td>
+              <td>Income</td>
+              <td>Total</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="account in income.accounts">
+              <td><strong>{{ account.description }}</strong></td>
+              <td>{{ account.total | currency}}</td>
+              <td>
+                <input class="form-control" type="number" ng-model="account.income"></input>
+              </td>
+              <td>{{ (income.addTotal(account.total, account.income) | currency) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+    <div class="col-md-4">
+      <legend>Income Details</legend>
+      <div class="form-group">
+        <label>Total Income</label>
+        <input class="form-control" type="number" ng-model="income.totalIncome"></input>
+      </div>
+      <div class="alert" role="alert" ng-class="(income.remaining() == 0 && !income.form.$pristine) ? 'alert-success' : 'alert-warning'">
+        <h5>Remaining Income: {{ (income.remaining() | currency) }}</h5>
+      </div>
+      <button class="btn btn-primary" ng-show="(income.remaining() == 0 && !income.form.$pristine)" ng-click="income.submitIncome()">Submit</button>
+    </div>
+  </div>
+</div>
