@@ -6,17 +6,17 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($rootScope, toastr, moneyAccount, moneyTransaction) {
+  function MainController($rootScope, $log, toastr, moneyAccount, moneyTransaction) {
     var vm = this;
 
     vm.selectedAccount = {}
 
     function init() {
       vm.accounts = moneyAccount.query(function(){
-          vm.transaction = {
-          user: $rootScope.user.id, 
-          inputAmount: "", 
-          description: "", 
+        vm.transaction = {
+          user: $rootScope.user.id,
+          inputAmount: "",
+          description: "",
           account: "1"
         }
       })
@@ -41,6 +41,17 @@
       } else {
         return ((vm.currentPage - 1) * 10)
       }
+    }
+
+    vm.accountTotal = function() {
+      var accountTotal = 0
+      angular.forEach(vm.accounts, function(value){
+        if (value.total) {
+          accountTotal = parseFloat(accountTotal) + parseFloat(value.total)
+        }
+      })
+      $log.log(accountTotal)
+      return accountTotal
     }
 
     init()
