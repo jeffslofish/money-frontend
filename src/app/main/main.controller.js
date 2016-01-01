@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($rootScope, $log, toastr, moneyAccount, moneyTransaction) {
+  function MainController($rootScope, toastr, moneyAccount, moneyTransaction) {
     var vm = this;
 
     vm.selectedAccount = {}
@@ -50,7 +50,6 @@
           accountTotal = parseFloat(accountTotal) + parseFloat(value.total)
         }
       })
-      $log.log(accountTotal)
       return accountTotal
     }
 
