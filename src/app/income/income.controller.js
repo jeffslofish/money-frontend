@@ -18,10 +18,10 @@
       var formTotal = 0
       angular.forEach(vm.accounts, function(value){
         if (value.income){
-          formTotal = formTotal + value.income
+          formTotal = parseFloat(formTotal) + parseFloat(value.income)
         }
       })
-      return vm.totalIncome - formTotal
+      return (vm.totalIncome - formTotal).toFixed(2)
     }
 
     // Why must you CONCAT, Javacript???
