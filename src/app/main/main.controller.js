@@ -17,7 +17,7 @@
           user: $rootScope.user.id,
           inputAmount: "",
           description: "",
-          account: "1"
+          account: "0"
         }
       })
     }

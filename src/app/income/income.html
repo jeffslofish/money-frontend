@@ -14,7 +14,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="account in income.accounts">
+            <tr ng-repeat="account in income.accounts | orderBy:'description'">
               <td><strong>{{ account.description }}</strong></td>
               <td>{{ account.total | currency}}</td>
               <td>

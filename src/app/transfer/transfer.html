@@ -17,14 +17,14 @@
             </div>
             <div class="form-group">
                   <label>From Account</label>
-                  <select class="form-control" ng-model="transfer.transfer.from_account" required ng-options="account.id as account.description for account in transfer.accounts"></select>
+                  <select class="form-control" ng-model="transfer.transfer.from_account" required ng-options="account.id as account.description for account in transfer.accounts | orderBy:'description'"></select>
             </div>
 
             <div class="form-group">
                   <label>To Account</label>
-                  <select class="form-control" ng-model="transfer.transfer.to_account" required ng-options="account.id as account.description for account in transfer.accounts"></select>
+                  <select class="form-control" ng-model="transfer.transfer.to_account" required ng-options="account.id as account.description for account in transfer.accounts | orderBy:'description'"></select>
             </div>
-        
+
             <button type="submit" class="btn btn-primary" ng-click="transfer.submitForm()">Submit</button>
           </form>
         </div>
